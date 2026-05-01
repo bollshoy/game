@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #111;
+}
+
+#game {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.ball {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  background: radial-gradient(circle at 30% 30%, #ffffff, #eaeaea 60%, #bfbfbf);
+
+  box-shadow:
+    0 0 10px #ffffff,
+    0 0 20px #ffffff,
+    0 0 40px #ffffff,
+    0 0 80px rgba(255, 255, 255, 0.7);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+
+  animation: neonPulse 1.8s infinite alternate;
+}
+
+.ball:hover {
+  transform: scale(1.2);
+
+  box-shadow:
+    0 0 20px #ffffff,
+    0 0 40px #ffffff,
+    0 0 80px #ffffff,
+    0 0 140px rgba(255, 255, 255, 1);
+}
+
+.ball {
+  animation: neonPulse 2s infinite alternate;
+}
+
+@keyframes neonPulse {
+  from {
+    box-shadow:
+      0 0 8px #ffffff,
+      0 0 16px #ffffff,
+      0 0 30px #ffffff;
+  }
+  to {
+    box-shadow:
+      0 0 20px #ffffff,
+      0 0 40px #ffffff,
+      0 0 80px #ffffff;
+  }
+}
+
+#score {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.5);
+
+  padding: 10px 20px;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#gameOver {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+
+  font-size: 64px;
+  font-weight: 700;
+  color: white;
+
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(255, 255, 255, 0.6),
+    0 0 80px rgba(255, 255, 255, 0.4);
+
+  display: none;
+  opacity: 0;
+
+  animation: gameOverAnim 0.8s ease forwards;
+}
+
+@keyframes gameOverAnim {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 50px;
+}
+
+.back img {
+  max-width: 40px;
+  width: 100%;
+  height: auto;
+  filter: invert(1);
+}
