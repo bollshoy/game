@@ -24,7 +24,7 @@ function createBall() {
   ball.style.left = obj.x + 'px'
   ball.style.top = obj.y + 'px'
 
-  const audio = new Audio('/sound/click.mp3')
+  const audio = new Audio('./sound/click.mp3')
 
   ball.addEventListener('click', () => {
     audio.play()
